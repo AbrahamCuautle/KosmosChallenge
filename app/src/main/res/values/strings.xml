@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">KosmosChallenge</string>
+    <string name="title_screen">Rick and Morty characters</string>
+    <string name="error_template">Error: %s</string>
+    <string name="btn_show_details">Show details</string>
+    <string name="btn_hide_details">Hide details</string>
+    <string name="label_character_status">Status: %s</string>
+    <string name="label_character_species">Species: %s</string>
+    <string name="label_character_type">Type: %s</string>
+    <string name="label_character_gender">Gender: %s</string>
+    <string name="label_character_origin">Origin: %s</string>
+    <string name="label_character_location">Location: %s</string>
 </resources>
