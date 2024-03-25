@@ -128,31 +128,39 @@ private fun RickMortyCharacter(
         if (showDetails) R.string.btn_hide_details else R.string.btn_show_details
     }
     Card(modifier = modifier) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            CharacterMainInfoRow(
-                name = character.name,
-                imageUrl = character.image,
-                onBtnDetailsClick = { showDetails = !showDetails },
-                textBtnDetails = stringResource(id = textBtnDetail)
-            )
-        }
+        CharacterMainInfoRow(
+            name = character.name,
+            imageUrl = character.image,
+            onBtnDetailsClick = { showDetails = !showDetails },
+            textBtnDetails = stringResource(id = textBtnDetail)
+        )
         AnimatedVisibility(visible = showDetails) {
-            Column(
+            CharacterInfoDetails(
                 modifier = Modifier.padding(4.dp),
-                verticalArrangement = Arrangement.spacedBy(4.dp)
-            ) {
-                Text(text = stringResource(id = R.string.label_character_status, character.status))
-                Text(text = stringResource(id = R.string.label_character_species,character.species))
-                Text(text = stringResource(id = R.string.label_character_type, character.type))
-                Text(text = stringResource(id = R.string.label_character_gender, character.gender))
-                Text(text = stringResource(id = R.string.label_character_origin, character.origin.name))
-                Text(text = stringResource(id = R.string.label_character_location, character.location.name))
-            }
+                character = character
+            )
         }
     }
 }
+
+@Composable
+private fun CharacterInfoDetails(
+    modifier: Modifier,
+    character: RickMortyCharacter
+) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(4.dp)
+    ) {
+        Text(text = stringResource(id = R.string.label_character_status, character.status))
+        Text(text = stringResource(id = R.string.label_character_species,character.species))
+        Text(text = stringResource(id = R.string.label_character_type, character.type))
+        Text(text = stringResource(id = R.string.label_character_gender, character.gender))
+        Text(text = stringResource(id = R.string.label_character_origin, character.origin.name))
+        Text(text = stringResource(id = R.string.label_character_location, character.location.name))
+    }
+}
+
 @Composable
 private fun CharacterMainInfoRow(
     modifier: Modifier = Modifier,
