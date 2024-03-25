@@ -23,6 +23,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -123,6 +124,9 @@ private fun RickMortyCharacter(
     character: RickMortyCharacter
 ) {
     var showDetails by rememberSaveable { mutableStateOf(false) }
+    val textBtnDetail = remember(showDetails) {
+        if (showDetails) R.string.btn_hide_details else R.string.btn_show_details
+    }
     Card(modifier = modifier) {
         Row(
             verticalAlignment = Alignment.CenterVertically
@@ -131,7 +135,7 @@ private fun RickMortyCharacter(
                 name = character.name,
                 imageUrl = character.image,
                 onBtnDetailsClick = { showDetails = !showDetails },
-                textBtnDetails = if (showDetails) stringResource(id = R.string.btn_hide_details) else  stringResource(id = R.string.btn_show_details)
+                textBtnDetails = stringResource(id = textBtnDetail)
             )
         }
         AnimatedVisibility(visible = showDetails) {
