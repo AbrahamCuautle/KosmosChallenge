@@ -1,61 +1,65 @@
 package com.example.kosmoschallenge.data.api.model
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class RickMortyResponse(
-    @SerializedName("info")
+    @SerialName("info")
     val info: InfoResponse,
-    @SerializedName("results")
+    @SerialName("results")
     val results: List<ResultResponse>,
 )
+@Serializable
 data class InfoResponse(
-    @SerializedName("count")
+    @SerialName("count")
     val count: Long,
-    @SerializedName("pages")
+    @SerialName("pages")
     val pages: Long,
-    @SerializedName("next")
+    @SerialName("next")
     val next: String?,
-    @SerializedName("prev")
+    @SerialName("prev")
     val prev: String?,
 )
-
+@Serializable
 data class ResultResponse(
-    @SerializedName("id")
+    @SerialName("id")
     val id: Long,
-    @SerializedName("name")
+    @SerialName("name")
     val name: String?,
-    @SerializedName("status")
+    @SerialName("status")
     val status: String?,
-    @SerializedName("species")
+    @SerialName("species")
     val species: String?,
-    @SerializedName("type")
+    @SerialName("type")
     val type: String?,
-    @SerializedName("gender")
+    @SerialName("gender")
     val gender: String?,
-    @SerializedName("origin")
+    @SerialName("origin")
     val origin: OriginResponse?,
-    @SerializedName("location")
+    @SerialName("location")
     val location: LocationResponse?,
-    @SerializedName("image")
+    @SerialName("image")
     val image: String?,
-    @SerializedName("episode")
+    @SerialName("episode")
     val episode: List<String>?,
-    @SerializedName("url")
+    @SerialName("url")
     val url: String?,
-    @SerializedName("created")
+    @SerialName("created")
     val created: String?,
 )
 
+@Serializable
 data class OriginResponse(
-    @SerializedName("name")
+    @SerialName("name")
     val name: String?,
-    @SerializedName("url")
+    @SerialName("url")
     val url: String?,
 )
-
+@Serializable
 data class LocationResponse(
-    @SerializedName("name")
+    @SerialName("name")
     val name: String?,
-    @SerializedName("url")
+    @SerialName("url")
     val url: String?,
 )
